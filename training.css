@@ -2,13 +2,17 @@ body {
     margin: 0;
     background: radial-gradient(42.1% 133.16% at 21.85% 44.04%, #040E3F 0%, #092B61 100%);
 }
+body {
+    /*overflow: hidden;*/
+}
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 auto 50px;
     max-width: 500px;
     padding-top: 50px;
-    /*position: relative;*/
+    position: relative;
+    z-index: 2;
 }
 .dragon-btn {
     width: 150px;
@@ -37,11 +41,14 @@ body {
 .item-dragon:hover {
     /*transform: scale(1.2) translateX(-10px);*/
     /*transform: scale(1.2) translateX(175px) rotateY(180deg);*/
-    transform: scale(1.2) translateX(13px) rotateY(180deg);
+    transform: scale(1.2) translateX(-16px) rotateY(180deg);
     /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
 }
 .item {
     text-decoration: none;
+}
+.body-dragon {
+    overflow: hidden;
 }
 /*кнопка волна---------------------------------*/
 /*.wave-button {
@@ -150,7 +157,7 @@ body {
 
 .wave-btn__waves-header:after{
     background-color: rgba(0,0,0,0.5);
-    border-radius: 44%;
+    border-radius: 42%;
 
     animation: waves 10s infinite linear;
     -webkit-animation: waves 10s infinite linear;
@@ -284,12 +291,15 @@ body {
 }
 /*!!!!!!!!!!!!!!!!!!!!!*/
 .dragon-background {
-    height: 590px;
+    /*height: 590px;*/
+    height: 970px;
     text-align: center;
     background: url(./img/grass.png) 0 0 no-repeat;
     margin: 0 auto;
-    max-width: 1025px;
+    /*max-width: 1025px;*/
     width: 100%;
+    background-size: contain;
+    transform: translateY(-185px);
 }
 #container {
     background: url(./img/lock.png) 0 0 no-repeat;
@@ -299,8 +309,10 @@ body {
     perspective-origin: 50% 0%;
     width: 345px;
     height: 100%;
-    margin: 50px;
+    /*margin: 50px;*/
+    margin: 0 auto;
     background-size: 100% auto;
+    transform: translate3d(-249px, 196px, 10px);
 }
 #dragon {
     position: relative;
