@@ -1,5 +1,85 @@
 /*в html добавлять клас _anim-items в css _active пример .animation-img._active*/
+.item-dragon {
+    display: flex;
+    position: relative;
+    transition: 0.8s;
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+    width: 190px;
+}
+.item-dragon:before {
+    content: '';
+    position: absolute;
+    width: 189px;
+    height: 144px;
+    top: -44px;
+    left: 0;
+    background: url(./img/dragon.png) 0 0 no-repeat;
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+    /*background-image: url(./img/dragon.png);*/
+    background-size: contain;
+    /*background: rebeccapurple;*/
+}
+.item-dragon:hover {
+    /*transform: scale(1.2) translateX(-10px);*/
+    /*transform: scale(1.2) translateX(175px) rotateY(180deg);*/
+    transform: scale(1.2) translateX(13px) rotateY(180deg);
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+}
+.item {
+    text-decoration: none;
+}
 
+.wave-btn-header {
+    width: 280px;
+    height: 60px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    overflow: hidden;
+
+    position: relative;
+
+    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+
+    justify-content:center;
+    align-items: center;
+
+    border-radius: 0 0 10px 10px;
+    text-decoration: none;
+}
+
+.wave-btn-header:hover {
+    border-radius: 10px;
+
+    transition: all 0.8s ease 0.2s;
+    -webkit-transition: all 0.8s ease 0.2s;
+    -moz-transition: all 0.8s ease 0.2s;
+    -ms-transition: all 0.8s ease 0.2s;
+    -o-transition: all 0.8s ease 0.2s;
+
+    -webkit-box-shadow: 0 0 40px rgba(73, 115, 255, 0.6);
+    box-shadow: 0 0 40px rgba(73, 115, 255, 0.6);
+
+}
+.wave-btn-header:hover .wave-btn__waves-header{
+    top: -50px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 50px;
+    max-width: 500px;
+    padding-top: 50px;
+    /*position: relative;*/
+}
 .animation-scroll {
     padding-top: 100px;
     max-width: 500px;
@@ -56,6 +136,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 400px;
+    margin-bottom: 50px;
 }
 .animation-img {
     width: 150px;

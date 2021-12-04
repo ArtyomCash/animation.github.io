@@ -65,7 +65,7 @@ body {
 
 }*/
 /* Основные стили */
-.wave-btn {
+.wave-btn-header {
     width: 280px;
     height: 60px;
     display: -webkit-flex;
@@ -91,7 +91,7 @@ body {
     text-decoration: none;
 }
 
-.wave-btn:hover {
+.wave-btn-header:hover {
     border-radius: 10px;
 
     transition: all 0.8s ease 0.2s;
@@ -104,7 +104,7 @@ body {
     box-shadow: 0 0 40px rgba(73, 115, 255, 0.6);
 
 }
-.wave-btn:hover .wave-btn__waves-header{
+.wave-btn-header:hover .wave-btn__waves-header{
     top: -50px;
 }
 

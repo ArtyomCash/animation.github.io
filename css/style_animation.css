@@ -80,7 +80,7 @@ background: radial-gradient(42.1% 133.16% at 21.85% 44.04%, #040E3F 0%, #092B61 
 }
 .header {}
 .main {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     margin-bottom: 300px;
 }
 .wrapper-card {
