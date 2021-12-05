@@ -35,7 +35,7 @@
 .item-dragon:hover {
     /*transform: scale(1.2) translateX(-10px);*/
     /*transform: scale(1.2) translateX(175px) rotateY(180deg);*/
-    transform: scale(1.2) translateX(-16px) rotateY(180deg);
+    transform: scale(1.2);
     /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
 }
 .item {
@@ -48,6 +48,7 @@
 .global-wrapper {
     background: radial-gradient(42.1% 133.16% at 21.85% 44.04%, #040E3F 0%, #092B61 100%);
     /*background: url(./img/sky-stars.jpg) 0 0 no-repeat;*/
+    transition: 1s;
 }
 /*кнопка волна---------------------------------*/
 /*.wave-button {
@@ -364,6 +365,7 @@
     margin: 0 auto;
     background-size: 100% auto;
     transform: translate3d(-249px, 196px, 10px);
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
 }
 #dragon {
     position: relative;
