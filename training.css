@@ -1,10 +1,4 @@
-body {
-    margin: 0;
-    background: radial-gradient(42.1% 133.16% at 21.85% 44.04%, #040E3F 0%, #092B61 100%);
-}
-body {
-    /*overflow: hidden;*/
-}
+
 .header {
     display: flex;
     justify-content: center;
@@ -49,6 +43,11 @@ body {
 }
 .body-dragon {
     overflow: hidden;
+    margin: 0;
+}
+.global-wrapper {
+    background: radial-gradient(42.1% 133.16% at 21.85% 44.04%, #040E3F 0%, #092B61 100%);
+    /*background: url(./img/sky-stars.jpg) 0 0 no-repeat;*/
 }
 /*кнопка волна---------------------------------*/
 /*.wave-button {
@@ -245,9 +244,18 @@ body {
     cursor: pointer;
     box-shadow: 0 0 0 rgba(204,169,44, 0.4);
     animation: pulse 4s infinite;
+    transition: 0.8s;
 }
 .sun:hover {
     animation: none;
+    transform: rotateX(180deg);
+    background-color: white;
+}
+#mun:hover ~ #sky {
+    /*background: black;*/
+    background: url(./img/sky-stars.jpg) 0 0 no-repeat;
+    width: 100%;
+    background-size: contain;
 }
 
 @-webkit-keyframes pulse {
