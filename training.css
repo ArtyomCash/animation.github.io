@@ -350,7 +350,7 @@
     margin: 0 auto;
     /*max-width: 1025px;*/
     width: 100%;
-    background-size: contain;
+    background-size: cover;
     transform: translateY(-185px);
 }
 #container {
@@ -359,7 +359,7 @@
     -webkit-perspective-origin: 50% 0%;
     perspective: 600px;
     perspective-origin: 50% 0%;
-    width: 345px;
+    width: 440px;
     height: 100%;
     /*margin: 50px;*/
     margin: 0 auto;
