@@ -256,7 +256,7 @@
     /*background: black;*/
     background: url(./img/sky-stars.jpg) 0 0 no-repeat;
     width: 100%;
-    background-size: contain;
+    background-size: cover;
 }
 
 @-webkit-keyframes pulse {
