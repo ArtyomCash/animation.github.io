@@ -1,0 +1,60 @@
+.game {
+    width: 600px;
+    height: 200px;
+    border-bottom: 1px solid #000000;
+    margin: 0 auto;
+}
+#ship {
+    width: 54px;
+    height: 50px;
+    background-image: url(../img/Space-adventure/ship.png);
+    background-size: 50px 50px;
+    position: relative;
+    top: 150px;
+}
+#meteorite {
+    width: 100px;
+    height: 100px;
+    background-image: url(../img/Space-adventure/meteorite.png);
+    background-size: 100px 100px;
+    position: relative;
+    top: 110px;
+    left: 580px;
+    animation: meteorite 1s infinite linear;
+}
+@keyframes meteorite {
+    0% {
+        left: 500px;
+    }
+    100% {
+        left: -20px;
+    }
+}
+
+.jump {
+    animation: jump 0.5s linear;
+}
+
+@keyframes jump {
+    0% {
+        top: 150px;
+    }
+    30% {
+        top: 100px;
+    }
+    50% {
+        top: 80px;
+    }
+    80% {
+        top: 130px;
+    }
+    100% {
+        top: 150px;
+    }
+}
+
+
+
+
+
+
