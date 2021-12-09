@@ -15,10 +15,10 @@ function jump() {
     }, 300)
 }
 let isAlive = setInterval (function () {
-    let dinoTop = parseInt(window.getComputedStyle(ship).getPropertyValue("top"));
-    let cactusLeft = parseInt(window.getComputedStyle(meteorite).getPropertyValue("left"));
+    let shipTop = parseInt(window.getComputedStyle(ship).getPropertyValue("top"));
+    let meteoriteLeft = parseInt(window.getComputedStyle(meteorite).getPropertyValue("left"));
 
-    if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
+    if (meteoriteLeft < 50 && meteoriteLeft > 0 && shipTop >= 140) {
         alert('GAME OVER');
     }
 }, 10);
