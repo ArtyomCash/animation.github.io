@@ -1,1 +1,8 @@
-
+body {
+    background-color: black;
+}
+.main {
+    margin: 0 auto;
+    width: 700px;
+    overflow: hidden;
+}

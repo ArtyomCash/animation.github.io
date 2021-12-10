@@ -8,8 +8,8 @@ let pipeUp = new Image();
 let pipeBottom = new Image();
 // загрузка изображений
 bird.src = "img/Ship_and_meteorites/flappy_bird_bird.png";
-bg.src = "img/Ship_and_meteorites/flappy_bird_bg.png";
-fg.src = "img/Ship_and_meteorites/flappy_bird_fg.png";
+bg.src = "img/Ship_and_meteorites/flappy_bird_bg_2.png";
+fg.src = "img/Ship_and_meteorites/flappy_bird_fg_2.png";
 pipeUp.src = "img/Ship_and_meteorites/flappy_bird_pipeUp.png";
 pipeBottom.src = "img/Ship_and_meteorites/flappy_bird_pipeBottom.png";
 
@@ -21,13 +21,71 @@ fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
 let gap = 90;
-// при нажатии на какую либо кнопку птичка летит в верх
-document.addEventListener("keydown", moveUp);
+/*let birdX = 10;
+let birdY = 10;*/
+let xPos = 150;
+let yPos = 150;
 
-function moveUp() {
-    yPos -= 25;
-    fly.play();
+// при нажатии на какую либо кнопку птичка летит в верх
+// document.addEventListener("keydown", moveDown);
+/*document.addEventListener("keydown", checkKey);
+
+function checkKey(e) {
+
+    // e = e || window.event;
+
+    if (e.keyCode === '38') {
+        // up arrow
+    }
+    else if (e.keyCode === '40') {
+        // down arrow
+    }
+    else if (e.keyCode === '37') {
+        // left arrow
+    }
+    else if (e.keyCode=== '39') {
+        // right arrow
+    }
+
+}*/
+document.addEventListener("keydown", direction);
+function direction() {
+    if(event.keyCode === 37 ){
+        xPos -=20}
+    else if(event.keyCode === 38){
+        yPos -=20}
+    else if(event.keyCode === 39){
+        xPos +=20}
+    else if(event.keyCode === 40){
+        yPos +=20  }
 }
+
+
+/*document.onkeydown = function(e) {
+    switch (e.keyCode) {
+        case 37:
+            // alert('left');
+            break;
+        case 38:
+            // alert('up');
+            break;
+        case 39:
+            // alert('right');
+            break;
+        case 40:
+            // alert('down');
+            break;
+    }
+};*/
+
+/*function moveUp() {
+    yPos -= 25;
+    // звук
+    // fly.play();
+}
+function moveDown() {
+    yPos += 25;
+}*/
 
 //создание блоков
 let pipe = [];
@@ -39,9 +97,10 @@ pipe[0] = {
 
 let score = 0;
 // позиция птички
-let xPos = 10;
-let yPos = 150;
-let grav = 1.5;
+
+// let grav = 1.5;
+
+const distanceElements = 1400;
 
 // рисуем все объекты в канвосе
 function draw() {
@@ -49,31 +108,50 @@ function draw() {
     ctx.drawImage(bg, 0, 0 );
     // отрисовываем блоки в цикле.
     for(let i = 0; i < pipe.length; i ++) {
-        ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
-        ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + gap);
+        ctx.drawImage(pipeUp, pipe[i].x - 1000, pipe[i].y);
+        ctx.drawImage(pipeBottom, pipe[i].x - 1000, pipe[i].y + pipeUp.height + gap);
+        //скорость труб
+        pipe[i].x --;
 
-        pipe[i].x--;
-
-        if(pipe[i].x === 90) {
+        if(pipe[i].x === distanceElements) {
             pipe.push({
                 x : cvs.width,
                 y : Math.floor(Math.random() * pipeUp.height) - pipeUp.height
-            });
-        }
+        });
 
+        } /*else if (pipe[i].x -= 2) {
+            pipe.push({
+                x: cvs.width,
+                y: Math.floor(Math.random() * pipeUp.height) - pipeUp.height
+            });
+        }*/
         // условия столкновения и блока
-        if(xPos + bird.width >= pipe[i].x
-            && xPos <= pipe[i].x + pipeUp.width
+        if(xPos + bird.width >= pipe[i].x - 1000
+            && xPos <= pipe[i].x - 1000 + pipeUp.width
             && (yPos <= pipe[i].y + pipeUp.height
             || yPos + bird.height >= pipe[i].y + pipeUp.height +
                 gap) || yPos + bird.height >= cvs.height - fg.height) {
                     location.reload(); // перезапуск странички
                 }
         // колличество очков
-        if(pipe[i].x === 5) {
+        if(pipe[i].x === 1000) {
             score++;
-            score_audio.play();
+            // звук
+            // score_audio.play();
         }
+ /*       if(xPos + bird.width >= pipe[i].x - 1000
+            && xPos <= pipe[i].x - 1000 + pipeUp.width
+            && (yPos <= pipe[i].y + pipeUp.height
+                || yPos + bird.height >= pipe[i].y + pipeUp.height)
+                || yPos + bird.height >= cvs.height - fg.height) {
+            score++;
+        }*/
+
+        // -------------
+        /*if(score >= 1) {
+            pipe[i].x -= 2;
+        }*/
+
     }
 
 
@@ -84,7 +162,7 @@ function draw() {
     // ctx.drawImage(fg, 0, 400);
     ctx.drawImage(bird, xPos, yPos);
 
-    yPos += grav;
+    // yPos += grav;
 
     ctx.fillStyle = "#000";
     ctx.font = "24px Verdana";
