@@ -21,35 +21,10 @@ fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
 let gap = 90;
-/*let birdX = 10;
-let birdY = 10;*/
 // позиция птички
-
 let xPos = 150;
 let yPos = 150;
 
-// при нажатии на какую либо кнопку птичка летит в верх
-// document.addEventListener("keydown", moveDown);
-/*document.addEventListener("keydown", checkKey);
-
-function checkKey(e) {
-
-    // e = e || window.event;
-
-    if (e.keyCode === '38') {
-        // up arrow
-    }
-    else if (e.keyCode === '40') {
-        // down arrow
-    }
-    else if (e.keyCode === '37') {
-        // left arrow
-    }
-    else if (e.keyCode=== '39') {
-        // right arrow
-    }
-
-}*/
 document.addEventListener("keydown", direction);
 function direction() {
     if(event.keyCode === 37 ){
@@ -62,33 +37,6 @@ function direction() {
         yPos +=20  }
 }
 
-
-/*document.onkeydown = function(e) {
-    switch (e.keyCode) {
-        case 37:
-            // alert('left');
-            break;
-        case 38:
-            // alert('up');
-            break;
-        case 39:
-            // alert('right');
-            break;
-        case 40:
-            // alert('down');
-            break;
-    }
-};*/
-
-/*function moveUp() {
-    yPos -= 25;
-    // звук
-    // fly.play();
-}
-function moveDown() {
-    yPos += 25;
-}*/
-
 //создание блоков
 let pipe = [];
 
@@ -99,10 +47,10 @@ pipe[0] = {
 
 let score = 0;
 
-
 // let grav = 1.5;
 
 const distanceElements = 1400;
+let globalSpeed = 1;
 
 // рисуем все объекты в канвосе
 function draw() {
@@ -113,8 +61,18 @@ function draw() {
         ctx.drawImage(pipeUp, pipe[i].x - 1000, pipe[i].y);
         ctx.drawImage(pipeBottom, pipe[i].x - 1000, pipe[i].y + pipeUp.height + gap);
         //скорость труб
-        const speedOne = pipe[i].x--;
-        speedOne;
+        if(score > 0) {
+            globalSpeed = 2;
+        }
+        if(score >= 1) {
+            globalSpeed = 3;
+        }
+
+        const pipeSpeed = pipe[i].x - globalSpeed;
+        // let speedOne = pipeSpeed - 1;
+        const speedOne = pipe[i].x = pipeSpeed;
+        // speedOne;
+        // console.log('speedOne', speedOne);
 
         // const speedTwo = pipe[i].x -= 2;
         // pipe[i].x -= 2;
@@ -123,7 +81,7 @@ function draw() {
             pipe.push({
                 x : cvs.width,
                 y : Math.floor(Math.random() * pipeUp.height) - pipeUp.height
-        });
+            });
 
         } /*else if (pipe[i].x -= 2) {
             pipe.push({
@@ -154,11 +112,18 @@ function draw() {
         }*/
 
         // -------------
-        if(score >= 1) {
-            pipe[i].x -= 2
+       /* function speed (speedOne) {
+            if(score >= 1) {
+                speedOne -= 2
+            }
+            return speedOne;
         }
-        /*if(score >= 2) {
-            pipe[i].x -= 2;
+        speed();*/
+        /*if(score > 0) {
+            globalSpeed = 2;
+        }*/
+        /*if (score === 2) {
+            pipe[i].x -= 3;
         }*/
     }
 
