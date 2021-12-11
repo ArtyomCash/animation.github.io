@@ -23,6 +23,8 @@ score_audio.src = "audio/score.mp3";
 let gap = 90;
 /*let birdX = 10;
 let birdY = 10;*/
+// позиция птички
+
 let xPos = 150;
 let yPos = 150;
 
@@ -96,7 +98,7 @@ pipe[0] = {
 };
 
 let score = 0;
-// позиция птички
+
 
 // let grav = 1.5;
 
@@ -111,9 +113,13 @@ function draw() {
         ctx.drawImage(pipeUp, pipe[i].x - 1000, pipe[i].y);
         ctx.drawImage(pipeBottom, pipe[i].x - 1000, pipe[i].y + pipeUp.height + gap);
         //скорость труб
-        pipe[i].x --;
+        const speedOne = pipe[i].x--;
+        speedOne;
 
-        if(pipe[i].x === distanceElements) {
+        // const speedTwo = pipe[i].x -= 2;
+        // pipe[i].x -= 2;
+
+        if(speedOne === distanceElements) {
             pipe.push({
                 x : cvs.width,
                 y : Math.floor(Math.random() * pipeUp.height) - pipeUp.height
@@ -148,10 +154,12 @@ function draw() {
         }*/
 
         // -------------
-        /*if(score >= 1) {
+        if(score >= 1) {
+            pipe[i].x -= 2
+        }
+        /*if(score >= 2) {
             pipe[i].x -= 2;
         }*/
-
     }
 
 
