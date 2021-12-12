@@ -53,13 +53,22 @@ function checkKey(e) {
 document.addEventListener("keydown", direction);
 function direction() {
     if(event.keyCode === 37 ){
-        xPos -=20}
+        xPos -=20;
+        fly.play();
+    }
     else if(event.keyCode === 38){
-        yPos -=20}
+        yPos -=20;
+        fly.play();
+    }
     else if(event.keyCode === 39){
-        xPos +=20}
+        xPos +=20;
+        fly.play();
+    }
     else if(event.keyCode === 40){
-        yPos +=20  }
+        yPos +=20;
+        fly.play();
+    }
+
 }
 
 
@@ -103,7 +112,10 @@ let score = 0;
 // let grav = 1.5;
 
 const distanceElements = 1400;
+let globalSpeed = 1;
 
+// 1000 - 1
+// 800 -  3
 // рисуем все объекты в канвосе
 function draw() {
     //метод в котором рисуем картинку
@@ -113,8 +125,24 @@ function draw() {
         ctx.drawImage(pipeUp, pipe[i].x - 1000, pipe[i].y);
         ctx.drawImage(pipeBottom, pipe[i].x - 1000, pipe[i].y + pipeUp.height + gap);
         //скорость труб
+        /*if(score > 0) {
+            globalSpeed = 2;
+        }
+        if(score >= 1) {
+            globalSpeed = 2.5;
+        }*/
+        /*if(score >= 1) {
+            globalSpeed = 3;
+        }*/
+
+        // const pipeSpeed = pipe[i].x - globalSpeed;
+        // let speedOne = pipeSpeed - 1;
+        // const speedOne = pipe[i].x = pipeSpeed;
+
+
         const speedOne = pipe[i].x--;
         speedOne;
+        // console.log('speedOne', speedOne);
 
         // const speedTwo = pipe[i].x -= 2;
         // pipe[i].x -= 2;
@@ -123,9 +151,9 @@ function draw() {
             pipe.push({
                 x : cvs.width,
                 y : Math.floor(Math.random() * pipeUp.height) - pipeUp.height
-        });
-
-        } /*else if (pipe[i].x -= 2) {
+            });
+        }
+        /*else if (pipe[i].x -= 2) {
             pipe.push({
                 x: cvs.width,
                 y: Math.floor(Math.random() * pipeUp.height) - pipeUp.height
@@ -143,7 +171,7 @@ function draw() {
         if(pipe[i].x === 1000) {
             score++;
             // звук
-            // score_audio.play();
+            score_audio.play();
         }
  /*       if(xPos + bird.width >= pipe[i].x - 1000
             && xPos <= pipe[i].x - 1000 + pipeUp.width
