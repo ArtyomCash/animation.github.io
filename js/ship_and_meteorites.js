@@ -7,7 +7,7 @@ let fg = new Image();
 let pipeUp = new Image();
 let pipeBottom = new Image();
 // загрузка изображений
-bird.src = "img/Ship_and_meteorites/flappy_bird_bird.png";
+bird.src = "img/Ship_and_meteorites/flappy_bird_bird_4.png";
 bg.src = "img/Ship_and_meteorites/flappy_bird_bg_2.png";
 fg.src = "img/Ship_and_meteorites/flappy_bird_fg_2.png";
 pipeUp.src = "img/Ship_and_meteorites/flappy_bird_pipeUp.png";
@@ -20,7 +20,7 @@ let score_audio = new Audio();
 fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
-let gap = 90;
+let gap = 120;
 /*let birdX = 10;
 let birdY = 10;*/
 // позиция птички
@@ -54,19 +54,19 @@ document.addEventListener("keydown", direction);
 function direction() {
     if(event.keyCode === 37 ){
         xPos -=20;
-        fly.play();
+        // fly.play();
     }
     else if(event.keyCode === 38){
         yPos -=20;
-        fly.play();
+        // fly.play();
     }
     else if(event.keyCode === 39){
         xPos +=20;
-        fly.play();
+        // fly.play();
     }
     else if(event.keyCode === 40){
         yPos +=20;
-        fly.play();
+        // fly.play();
     }
 
 }
@@ -142,7 +142,7 @@ function draw() {
 
         const speedOne = pipe[i].x--;
         speedOne;
-        // console.log('speedOne', speedOne);
+        console.log('первая скорость', speedOne);
 
         // const speedTwo = pipe[i].x -= 2;
         // pipe[i].x -= 2;
@@ -171,7 +171,7 @@ function draw() {
         if(pipe[i].x === 1000) {
             score++;
             // звук
-            score_audio.play();
+            // score_audio.play();
         }
  /*       if(xPos + bird.width >= pipe[i].x - 1000
             && xPos <= pipe[i].x - 1000 + pipeUp.width
@@ -183,7 +183,8 @@ function draw() {
 
         // -------------
         if(score >= 1) {
-            pipe[i].x -= 2
+            pipe[i].x -= 2;
+            // console.log('вторя скорость', pipe[i].x -= 2);
         }
         /*if(score >= 2) {
             pipe[i].x -= 2;
