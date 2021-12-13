@@ -20,7 +20,7 @@ let score_audio = new Audio();
 fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
-let gap = 90;
+let gap = 110;
 // позиция утки
 let xPos = 150;
 let yPos = 150;
